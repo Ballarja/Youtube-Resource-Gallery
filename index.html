@@ -20,8 +20,14 @@
                 <input type="text" name="videoId" id="videoId" placeholder="DF9&DFF6">
                 <button onclick="saveVideo(event)">Save The Video!</button>
             </form>
-            <ul id="videosContainer"></ul>
         </div>
+        <ul id="videosContainer"></ul>
+    </div>
+    <div id="popup" onclick="handlePopupClick()" class="closed">
+        <iframe width="560" height="315"
+        frame-border="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
     </div>
     <script src="app.js"></script>
 </body>
