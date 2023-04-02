@@ -1,10 +1,11 @@
 const videosContainer = document.getElementById("videosContainer");
 const videoIdInput = document.getElementById("videoId");
+const IDS_KEY = "youTubeVideoIds";
 
 let youTubeVideoIds = [];
 
 const loadVideos = () => {
-    youTubeVideoIds = JSON.parse(localStorage.getItem("youTubeVideoIds")) || [];
+    youTubeVideoIds = JSON.parse(localStorage.getItem(IDS_KEY)) || [];
 }
 
 const displayVideos = () => {
@@ -16,6 +17,15 @@ const displayVideos = () => {
         </li>    
     `).join("")
     videosContainer.innerHTML = videosHTMLString;
+};
+
+const clickVideo = (event, id) => {
+    console.log(event, id);
+    if(event.target.classList.contains("delete-btn")){
+        youTubeVideoIds = youTubeVideoIds.filter((i) => i !== id);
+        localStorage.setItem(IDS_KEY, JSON.stringify(youTubeVideoIds));
+        displayVideos();
+    }
 }
 
 const saveVideo = (event) => {
@@ -23,7 +33,7 @@ const saveVideo = (event) => {
     const videoId = videoIdInput.value;
     youTubeVideoIds.unshift(videoId);
     videoIdInput.value = "";
-    localStorage.setItem("youTubeVideoIds", JSON.stringify(youTubeVideoIds));
+    localStorage.setItem(IDS_KEY, JSON.stringify(youTubeVideoIds));
     displayVideos();
 }
 
