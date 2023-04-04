@@ -31,6 +31,7 @@ form{
     margin-top: 30px;
 }
 form .field{
+    position: relative;
     height: 50px;
     width: 100%;
     margin-top: 20px;
@@ -50,6 +51,16 @@ form .field{
     
     padding: 0 15px;
     border: 1px solid #CACACA;
+}
+.eye-icon{
+    position: absolute;
+    top:50%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color:#8b8b8b;
+    cursor: pointer;
+    padding: 5px;
 }
 .form-link{
     text-align: center;
